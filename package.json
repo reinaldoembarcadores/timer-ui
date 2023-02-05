@@ -1,0 +1,157 @@
+{
+  "name": "time-tracker",
+  "version": "1.52.0",
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "test-headless": "ng test --browsers ChromeHeadless",
+    "ci-test": "ng test --no-watch --no-progress --browsers ChromeHeadless",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "10.2.2",
+    "@angular/cdk": "11.2.3",
+    "@angular/common": "10.2.2",
+    "@angular/compiler": "10.2.2",
+    "@angular/core": "10.2.2",
+    "@angular/forms": "10.2.2",
+    "@angular/material": "11.2.3",
+    "@angular/material-moment-adapter": "11.2.9",
+    "@angular/platform-browser": "10.2.2",
+    "@angular/platform-browser-dynamic": "10.2.2",
+    "@angular/router": "10.2.2",
+    "@azure/app-configuration": "1.1.0",
+    "@azure/identity": "1.1.0",
+    "@ng-select/ng-select": "7.2.0",
+    "@ngneat/tailwind": "^5.2.5",
+    "@ngrx/effects": "10.0.1",
+    "@ngrx/store": "10.0.1",
+    "@ngrx/store-devtools": "10.0.1",
+    "@types/datatables.net-buttons": "1.4.3",
+    "angular-calendar": "0.28.26",
+    "angular-datatables": "9.0.2",
+    "bootstrap": "4.4.1",
+    "datatables.net": "1.11.3",
+    "datatables.net-buttons": "1.6.2",
+    "datatables.net-buttons-dt": "1.6.2",
+    "datatables.net-dt": "1.10.21",
+    "datatables.net-responsive": "2.2.6",
+    "datatables.net-responsive-dt": "2.2.6",
+    "date-fns": "2.22.1",
+    "jquery": "3.5.1",
+    "jszip": "3.7.0",
+    "minimist": "1.2.5",
+    "moment": "2.25.3",
+    "msal": "1.2.1",
+    "ngrx-store-localstorage": "11.0.0",
+    "ngx-cookie-service": "11.0.2",
+    "ngx-mask": "12.0.0",
+    "ngx-material-timepicker": "5.5.3",
+    "ngx-pagination": "5.0.0",
+    "ngx-toastr": "12.0.1",
+    "ngx-ui-switch": "10.0.2",
+    "rxjs": "6.6.3",
+    "tslib": "1.10.0",
+    "zone.js": "0.10.3"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "10.0.1",
+    "@angular-devkit/build-angular": "0.1002.0",
+    "@angular/cli": "10.2.0",
+    "@angular/compiler-cli": "10.2.2",
+    "@angular/language-service": "10.2.2",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/npm": "7.0.5",
+    "@stryker-mutator/core": "^3.1.0",
+    "@stryker-mutator/karma-runner": "^3.1.0",
+    "@stryker-mutator/typescript": "^3.1.0",
+    "@tailwindcss/forms": "0.3.3",
+    "@tailwindcss/typography": "0.4.1",
+    "@types/datatables.net": "1.10.19",
+    "@types/jasmine": "3.5.0",
+    "@types/jasminewd2": "2.0.3",
+    "@types/jquery": "3.3.38",
+    "@types/node": "12.11.1",
+    "angular-datatables": "9.0.2",
+    "angular-ng-autocomplete": "2.0.1",
+    "codelyzer": "5.2.2",
+    "commit-message-validator": "0.1.11",
+    "datatables.net": "1.11.3",
+    "datatables.net-dt": "1.10.21",
+    "husky": "4.2.3",
+    "jasmine-core": "3.5.0",
+    "karma": "6.3.2",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-coverage-istanbul-reporter": "2.1.0",
+    "karma-jasmine": "2.0.1",
+    "karma-jasmine-html-reporter": "1.4.2",
+    "karma-json-fixtures-preprocessor": "0.0.6",
+    "karma-spec-reporter": "0.0.32",
+    "popper.js": "1.16.0",
+    "postcss": "8.3.6",
+    "prettier": "2.0.2",
+    "protractor": "7.0.0",
+    "semantic-release": "17.4.2",
+    "tailwindcss": "2.2.9",
+    "ts-node": "8.3.0",
+    "tslint": "6.1.0",
+    "typescript": "4.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commit-message-validator",
+      "pre-commit": "ng lint && ng test --watch=false --browsers=ChromeHeadless"
+    }
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "^(fix: TT-|feat: TT-|perf: TT-|build: TT-|ci: TT-|docs: TT-|refactor: TT-|style: TT-|test: TT-|code-smell: TT-)[0-9].*",
+      "errorMessage": "Your commit message needs to start with fix: , feat:, or perf: followed by any commit message, e.g. fix: TT-43 any commit message."
+    }
+  },
+  "resolutions": {
+    "serialize-javascript": "^3.1.0",
+    "node-forge": "^0.10.0"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular"
+      },
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ]
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]nn${nextRelease.notes}"
+      }
+    ],
+    "parserOpts": {
+      "mergePattern": "Merged PR .*:"
+    },
+    "repositoryUrl": "https://github.com/ioet/time-tracker-ui.git"
+  }
+}

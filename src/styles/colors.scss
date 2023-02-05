@@ -1,0 +1,92 @@
+$font-size-base: 0.9rem;
+
+$dark: #5c4e63;
+$primary: #00baee;
+$secondary: #555164;
+$success: #00cc6c;
+$warning: #ff5e0a;
+$danger: #ff3948;
+$info: #00baee;
+
+/*
+  Angular Calendar Corlors
+*/
+$background-calendar-cell: white;
+$background-card-entry: #e0effb;
+$background-card-entry-activate: #e1fbf0;
+$primary-text: #8598b7;
+$activate-text: #86b49f;
+$shadow-card-entry: black;
+
+.bg-primary,
+.btn-primary,
+.badge-primary,
+.alert-primary {
+  background-color: $primary;
+  border: none;
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus {
+    background-color: #0c8aae;
+    border: white;
+  }
+}
+
+.bg-secondary,
+.btn-secondary,
+.badge-secondary,
+.alert-secondary {
+  background-color: $secondary;
+  border: none;
+}
+
+.btn-danger {
+  background-color: $danger;
+  border: none;
+}
+
+.thead-blue {
+  background-color: $primary;
+  color: white;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background-color: $primary;
+  border-radius: 8px;
+}
+
+.btn:focus,
+.btn:active {
+  border: none;
+}
+
+/**
+General Datatable adjustment styles
+ */
+.dataTables_wrapper {
+  .dataTables_scroll {
+    .dataTables_scrollBody {
+      table {
+        thead {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.dt-buttons {
+  .dt-button {
+    background-image: linear-gradient($info);
+  }
+  .dt-button:hover:not(.disabled) {
+    background-image: linear-gradient($info);
+    opacity: 0.5;
+  }
+
+  .dt-button.disabled {
+    background-image: linear-gradient($info);
+    opacity: 0.5;
+  }
+}

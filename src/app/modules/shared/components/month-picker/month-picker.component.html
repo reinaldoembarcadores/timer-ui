@@ -1,0 +1,31 @@
+<div class="card-header">
+  <div class="row">
+    <div class="col-4">
+      <button class="btn mr-auto" (click)="changeYear('subtract')">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="col-4 align-item">
+      <p class="year-text">
+        {{selectedYearText}}
+      </p>
+    </div>
+
+    <div class="col-4 text-right">
+      <button class="btn ml-auto" *ngIf="showArrowNext" (click)="changeYear('add')">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row content-months">
+  <div class="spacing col-xl-1 col-lg-1 col-md-2 col-2" *ngFor="let month of months; let i = index">
+    <button class="btn btn-light btn-block"
+      [ngClass]="{'btn-primary': isSelectedMonth(i)}"
+      (click)="selectMonth(i)"
+      [disabled]="monthEnable(i)">
+      <small>{{ month.slice(0, 3) }}</small>
+    </button>
+  </div>
+</div>

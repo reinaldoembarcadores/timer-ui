@@ -1,0 +1,25 @@
+<app-time-entries-summary></app-time-entries-summary>
+
+<div class="col-12 col-md-9 px-0">
+
+  <div class="row pb-4">
+    <div class="col-12">
+      <p *ngIf="areFieldsVisible" class="card-title text-left">
+        You clocked in at
+        <strong>{{ activeTimeEntry?.start_date | date:'shortTime' }}</strong>
+      </p>
+      <p *ngIf="!areFieldsVisible" class="card-title text-left">
+        Hi <strong>{{ username }}</strong>, please select a project to clock-in.
+      </p>
+    </div>
+  </div>
+
+  <app-project-list-hover></app-project-list-hover>
+  <div *ngIf="areFieldsVisible">
+    <app-entry-fields></app-entry-fields>
+  </div>
+
+  <div class="form-group">
+    <button *ngIf="areFieldsVisible" class="btn btn-primary btn-block" type="button" (click)="clockOut()">Clock Out</button>
+  </div>
+</div>

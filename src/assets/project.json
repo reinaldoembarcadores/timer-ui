@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "GoSpace",
+    "details": "This app help to improve your workspace.",
+    "status": "Active",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "name": "MidoPlay",
+    "details": "It's a good app to play Lottery",
+    "status": "Inactive",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "name": "Facebook",
+    "details": "It's a good app",
+    "status": "Active",
+    "completed": true
+  },
+  {
+    "id": 4,
+    "name": "Insagram",
+    "details": "It's a good app",
+    "status": "Active",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "name": "Youtube",
+    "details": "It's a good app",
+    "status": "Active",
+    "completed": true
+  },
+  {
+    "id": 6,
+    "name": "XDA",
+    "details": "It's a good app",
+    "status": "Active",
+    "completed": true
+  }
+]

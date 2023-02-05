@@ -1,0 +1,61 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: CD process to deploy to App-Service service
+
+on:
+  # Trigger the workflow on pull request but only for the master branch
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    name: Deploy to Azure
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      BUILD_PATH: 'dist/time-tracker'
+
+    steps:
+    - name: Checkout of master
+      uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: Inject Secrets
+      env:
+        SCOPES: ${{ secrets.scopes }}
+        CLIENT_ID: ${{ secrets.client_id }}
+        AUTHORITY: ${{ secrets.authority }}
+        STACK_EXCHANGE_ID: ${{ secrets.stack_exchange_id }}
+        STACK_EXCHANGE_ACCESS_TOKEN: ${{ secrets.stack_exchange_access_token }}
+        AZURE_APP_CONFIGURATION_CONNECTION_STRING: ${{ secrets.azure_app_configuration_connection_string }}
+      run: |
+        chmod +x ./scripts/populate-keys.sh
+        sh ./scripts/populate-keys.sh
+
+    - name: 'run: npm install and build'
+      run: |
+        npm install
+        npm run build --prod --if-present
+        cp scripts/default-static-site.js ${BUILD_PATH}
+
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: 'time-tracker-ui'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_728dc744f9384bf38e8a0446aaaee29d }}
+        package: dist/time-tracker
+
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2.0.0
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_ICON: https://avatars.slack-edge.com/2020-04-14/1055222096486_7b0bf047c32f9f666b69_48.jpg
+        SLACK_USERNAME: 'heisenberg-says:'

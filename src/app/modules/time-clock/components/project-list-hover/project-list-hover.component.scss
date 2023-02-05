@@ -1,0 +1,29 @@
+@import '../../../../../styles/colors.scss';
+
+.span-width {
+  background-color: $primary;
+  color: white;
+}
+
+.btn-select {
+  padding: 0.2rem 1rem;
+  font-size: x-small;
+}
+
+.container {
+  font-size: small;
+  cursor: text;
+}
+
+.autocomplete {
+  display: block;
+  background-clip: padding-box;
+  border: none;
+  margin: 0em;
+  padding: 0em;
+}
+
+.btn-update {
+  background-color: $warning;
+  color: white;
+}

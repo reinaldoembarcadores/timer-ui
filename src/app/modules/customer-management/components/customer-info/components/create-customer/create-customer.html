@@ -1,0 +1,35 @@
+<div class="container">
+  <form style="width: 600px;" [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+      <div class="form-group">
+      <input
+        class="form-control form-control-sm"
+        id="customerName"
+        type="text"
+        formControlName="name"
+        placeholder="Customer name"
+        [class.is-invalid]="customerForm.invalid && customerForm.touched"
+        (input)="onInputChangeCustomer($event.target.value)"
+        required
+      />
+      <span
+        class="badge badge-pill badge-light text-danger"
+        *ngIf="(name.dirty || name.touched) && name.invalid && name.errors.required"
+        >Customer name is required</span
+      >
+    </div>
+    <div class="form-group">
+      <textarea
+        class="form-control form-control-sm mt-2"
+        id="customerDescription"
+        rows="3"
+        formControlName="description"
+        placeholder="Customer description"
+        (input)="onInputChangeCustomer($event.target.value)"
+      ></textarea>
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!customerForm.valid">Save</button>
+      <button (click)="resetCustomerForm()" id="cancel" type="button" class="btn btn-secondary mb-2 ml-2 mt-2">
+        Cancel
+      </button>
+  </form>
+</div>

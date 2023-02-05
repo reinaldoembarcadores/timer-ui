@@ -1,0 +1,13 @@
+<input
+  [value]="value"
+  [disabled]="isDisabled"
+  (dateInput)="onInput($event.target.value)"
+  class="form-control"
+  aria-label="Small"
+  aria-describedby="inputGroup-sizing-sm"
+  required="required"
+  [matDatepicker]="datepicker"
+  (click)="openOrCloseDatePicker(datepicker)"
+  [max]="getCurrentDate()"
+/>
+<mat-datepicker #datepicker ></mat-datepicker>

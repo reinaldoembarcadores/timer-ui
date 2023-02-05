@@ -1,0 +1,8 @@
+<div class="col-12 col-md-9 px-0">
+  <div>
+    <app-create-activity
+    [showActivityForm]="showActivityForm" (changeValueShowActivityForm)="showActivityForm = $event"></app-create-activity>
+  </div>
+  <app-activity-list
+  (changeValueShowActivityForm)="showActivityForm = $event"></app-activity-list>
+</div>

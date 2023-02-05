@@ -1,0 +1,121 @@
+@import '../../../../../styles/colors.scss';
+
+@mixin tagTechnology() {
+  background-color: $secondary;
+  color: #ffffff;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.span-width {
+  width: 6rem;
+  background-color: $primary;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.technology-content {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin: 0 0 2rem 6rem;
+  max-height: 7.5rem;
+  overflow-y: auto;
+
+  .technology-list {
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+    padding: 0.2rem 0.5rem;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .active {
+    background-color: #efefef;
+  }
+}
+
+.tags-content {
+  margin: 2rem 0;
+
+  div {
+    @include tagTechnology();
+
+    border-radius: 0.2rem;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    font-size: 0.8rem;
+    padding: 0.1rem 1rem 0.2rem 1.5rem;
+    position: relative;
+    margin: 0 0.5rem 0.5rem 0;
+
+    i {
+      cursor: pointer;
+    }
+  }
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+.container {
+  font-size: small;
+  cursor: text;
+}
+
+.autocomplete {
+  display: block;
+  background-clip: padding-box;
+  border: none;
+  margin: 0em;
+}
+
+.valid ::ng-deep .autocomplete-container ::ng-deep .input-container ::ng-deep input  {
+  border: 1px solid $primary;
+  border-radius: 0.25rem;
+}
+
+.timepicker-input ::ng-deep div{
+  border-radius: 0.25rem;
+}
+
+.timepicker-input--disabled ::ng-deep div{
+  pointer-events: none;
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.border-tag {
+  border: 1px solid $primary;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 1100 !important;
+}

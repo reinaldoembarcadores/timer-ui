@@ -1,0 +1,31 @@
+<div>
+  <div class="row">
+    <div style="padding: 15px;">
+      <button (click)="activateActivityForm()" class="btn btn-primary">Add new activity</button>
+    </div>
+  </div>
+  <form *ngIf="showActivityForm" [formGroup]="activityForm" (ngSubmit)="onSubmit(activityForm.value)">
+    <div class="form-group">
+      <label>Name:</label>
+      <div>
+        <input class="form-control" id="name" type="text" formControlName="name"
+        [class.is-invalid]="name.invalid && name.touched" required />
+        <div class="text-danger" *ngIf="(name.dirty || name.touched) && name.invalid && name.errors.required">
+          Activity name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+    <label for="NotesTextarea">Description:</label>
+      <textarea class="form-control" rows="2" id="description" type="text" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group" style="text-align: right;">
+      <button class="btn btn-primary" type="submit" [disabled]="!activityForm.valid">Save</button>
+      <button class="btn btn-secondary mb-2 ml-2 mt-2" type="button" (click)="cancelButton()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

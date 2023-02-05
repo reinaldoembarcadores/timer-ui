@@ -1,0 +1,14 @@
+@import '../../../../styles/colors.scss';
+
+.timer {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.span-width {
+  width: 6rem;
+  background-color: $primary;
+  color: white;
+}

@@ -1,0 +1,11 @@
+@import '../../../../../styles/colors.scss';
+
+.user-profile {
+  color: black;
+  cursor: pointer;
+}
+
+.style-click:active {
+  background-color: $primary;
+  color: white;
+}

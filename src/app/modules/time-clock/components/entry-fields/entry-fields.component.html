@@ -1,0 +1,63 @@
+<form [formGroup]="entryForm">
+  <div class="form-group">
+    <label>Activity:</label>
+    <select
+      (change)="onSubmit()"
+      class="form-control"
+      formControlName="activity_id"
+      [class.is-invalid]="activity_id.invalid && activity_id.touched"
+      #autofocus
+      required>
+      <option *ngFor="let activity of activities" value="{{ activity.id }}" class = "id">{{ activity.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Ticket URI:</label>
+    <input
+      (blur)="onSubmit()"
+      type="text"
+      id="uri"
+      formControlName="uri"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Time in:</label>
+    <div class="row">
+      <div class="col-md-auto">
+        <ngx-timepicker-field
+          [format]="24"
+          formControlName="start_hour"
+          id="start_hour"
+          (timeChanged)="activeTimeInButtons()"
+        ></ngx-timepicker-field>
+      </div>
+      <div class="col-md-auto">
+        <button *ngIf="showTimeInbuttons" (click)="onUpdateStartHour()" class="btn btn-success">Update</button>
+      </div>
+      <div class="col-md-auto">
+        <button *ngIf="showTimeInbuttons" (click)="cancelTimeInUpdate()" class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <app-technologies
+    (technologyUpdated)="onTechnologyUpdated($event)"
+    [selectedTechnologies]="selectedTechnologies"
+  >
+  </app-technologies>
+
+  <div class="form-group">
+    <label>Description:</label>
+    <textarea
+      maxlength="1500"
+      (blur)="onSubmit()"
+      formControlName="description"
+      class="form-control"
+      id="NotesTextarea"
+      rows="2"></textarea>
+  </div>
+
+</form>

@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label>Technology:</label>
+
+  <ng-select
+    bindLabel="name"
+    bindValue="name"
+    ngDefaultControl
+    [items]="technologies"
+    [loading]="isLoading"
+    [disabled]='isDisabled'
+    [searchable]="ALLOW_SEARCH"
+    [multiple]="ALLOW_SELECT_MULTIPLE"
+    [placeholder]="TECHNOLOGIES_PLACEHOLDER"
+    [notFoundText]="NO_RESULTS_MESSAGE"
+    [maxSelectedItems]='MAX_NUM_TECHNOLOGIES'
+    [minTermLength]="MIN_SEARCH_TERM_LENGTH"
+    [typeToSearchText]="TYPE_TO_SEARCH_TEXT"
+    [typeahead]="technologiesInput$"
+    [(ngModel)]="selectedTechnologies"
+    (change)="updateTechnologies()">
+
+  </ng-select>
+
+</div>
